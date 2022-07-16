@@ -13,13 +13,9 @@ const store = createStore({
     };
   },
   mutations: {
-    filterBy(state, { filter }) {
-      let newFilter = JSON.parse(JSON.stringify(filter));
-      state.filterBy = newFilter;
-      console.log('state', state.filterBy);
-    },
     setToys(state, { toys }) {
-      state.toys = toys;
+      console.log('toys mu', toys);
+      state.toys = JSON.parse(JSON.stringify(toys));
     },
     removeToy(state, { id }) {
       console.log('id mu', id);
@@ -49,20 +45,13 @@ const store = createStore({
     },
   },
   actions: {
-    // loadToys({ commit }) {
-    //   toyService
-    //     .query()
-    //     .then(toys => {
-    //       console.log('the toys', toys);
-    //       commit({ type: 'setToys', toys });
-    //     })
-    //     .catch(err => {
-    //       console.log(err);
-    //     });
-    // },
     async loadToys({ commit }) {
       const toys = await toyService.query();
       console.log('toys store', toys);
+      commit({ type: 'setToys', toys });
+    },
+    async setFilterBy({ commit }, { filterBy }) {
+      const toys = await toyService.query(filterBy);
       commit({ type: 'setToys', toys });
     },
     removeToy({ commit }, { id }) {
@@ -102,44 +91,9 @@ const store = createStore({
   },
 
   getters: {
-    toysToDisplay(state) {
-      let toys = JSON.parse(JSON.stringify(state.toys));
-      const { name, stock, label, sorting, decr } = JSON.parse(JSON.stringify(state.filterBy));
-      // console.log(name, stock, label, sorting, decr);
-      if (name) {
-        const regex = new RegExp(name, 'i');
-        const searchByname = toys.filter(toy => regex.test(toy.name));
-        toys = searchByname;
-      }
-      if (stock) {
-        const inStock = toys.filter(toy => toy.inStock);
-        console.log(inStock);
-        toys = inStock;
-      }
-      if (label) {
-        console.log('the lable', label);
-        const label_ = toys.filter(toy => toy.labels.includes(label));
-        toys = label === 'show' ? toys : label_;
-      }
-      if (sorting) {
-        if (decr) {
-          const incr = toys.sort((a, b) => {
-            if (a[sorting] > b[sorting]) return -1;
-            if (a[sorting] < b[sorting]) return 1;
-            return 0;
-          });
-          console.log('incr', incr);
-          toys = incr;
-        } else {
-          const incr = toys.sort((a, b) => {
-            if (a[sorting] < b[sorting]) return -1;
-            if (a[sorting] > b[sorting]) return 1;
-            return 0;
-          });
-          toys = incr;
-        }
-      }
-      return toys;
+    toysToDisplay({ toys }) {
+      return JSON.parse(JSON.stringify(toys));
+      // return toys;
     },
     toyLabels(state) {
       return state.labels;

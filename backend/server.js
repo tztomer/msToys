@@ -13,10 +13,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/toy', async (req, res) => {
-  // console.log('res main service', res.status(200));
-  // console.log('res main statusCode', res.statusCode);
-  const toys = await toyService.query();
-  res.status(200).send(toys);
+  try {
+    const filterBy = req.query;
+    const toys = await toyService.query(filterBy);
+    res.status(200).send(toys);
+  } catch (ex) {
+    console.log('ex fom sevrer', ex);
+  }
 });
 
 app.listen(port, () => {

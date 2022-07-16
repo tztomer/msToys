@@ -14,7 +14,7 @@
       <button @click.prevent="displayFilter($event)" value="name" type="name">Sort By Name</button>
       <button @click.prevent="displayFilter($event)" value="price" type="price">Sort By Price</button>
 
-      <button @click.prevent="displayFilter($event)" type="created" value="createdAt">Sort5 By Created</button>
+      <button @click.prevent="displayFilter($event)" type="created" value="createdAt">Sort By Created</button>
     </form>
   </section>
 </template>
@@ -39,9 +39,9 @@
           this.filterBy.sorting = $event.target._value;
           this.filterBy.decr = !this.filterBy.decr;
         }
-
-        console.log('display from filter com', this.filterBy);
-        this.$store.commit({ type: 'filterBy', filter: this.filterBy });
+        let filter = JSON.parse(JSON.stringify(this.filterBy));
+        this.$store.dispatch({ type: 'setFilterBy', filterBy: this.filterBy });
+        console.log('this filterby', filter);
       },
     },
     computed: {

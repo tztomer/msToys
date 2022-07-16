@@ -15,11 +15,14 @@ export const toyService = {
   // toyLabels,
 };
 const BASE = '//localhost:3030/api/toy';
-async function query() {
-  // return storageService.query(STORAGE_KEY);
-  const toys = await axios.get(BASE);
-  console.log(toys.data);
-  return toys.data;
+async function query(filterBy) {
+  try {
+    const toys = await axios.get(BASE, { params: filterBy });
+
+    return toys.data;
+  } catch (ex) {
+    console.log('ex from front service axios', ex);
+  }
 }
 
 function _createToys() {

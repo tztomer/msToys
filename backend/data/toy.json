@@ -3,25 +3,27 @@
     "_id": "AFOuT",
     "name": "Kagami",
     "price": 240,
-    "inStock": true,
+    "createdAt": 67583356751,
+    "inStock": false,
     "reviews": ["review 1 best 1", "review 2 almost 1", "review 3 far from 1"],
-    "labels": ["Battery powered", "Outdoor", "On wheels"]
+    "labels": ["Battery powered", "On wheels"]
   },
   {
     "_id": "yi83i",
     "name": "Koruko!",
     "price": 92,
+    "createdAt": 58490487459,
     "inStock": true,
-    "reviews": ["review 1 best 1", "review 2 almost 1", "review 3 far from 1"],
-    "labels": ["Battery powered", "Outdoor", "On wheels"]
+    "reviews": ["review 1 best 1", "review 3 far from 1"],
+    "labels": ["Battery powered", "On wheels"]
   },
   {
-    "name": "Tetso sama!",
+    "name": "Shani Zairi",
     "price": 164,
     "createdAt": 1657656658945,
     "inStock": true,
     "reviews": ["review 1 best 1", "review 2 almost 1", "review 3 far from 1"],
-    "labels": ["Battery powered", "Outdoor", "On wheels"],
+    "labels": ["Battery powered", "On wheels"],
     "_id": "yzZ9q"
   },
   {
