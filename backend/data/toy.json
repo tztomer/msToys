@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "AFOuT",
+    "name": "Kagami",
+    "price": 240,
+    "inStock": true,
+    "reviews": ["review 1 best 1", "review 2 almost 1", "review 3 far from 1"],
+    "labels": ["Battery powered", "Outdoor", "On wheels"]
+  },
+  {
+    "_id": "yi83i",
+    "name": "Koruko!",
+    "price": 92,
+    "inStock": true,
+    "reviews": ["review 1 best 1", "review 2 almost 1", "review 3 far from 1"],
+    "labels": ["Battery powered", "Outdoor", "On wheels"]
+  },
+  {
+    "name": "Tetso sama!",
+    "price": 164,
+    "createdAt": 1657656658945,
+    "inStock": true,
+    "reviews": ["review 1 best 1", "review 2 almost 1", "review 3 far from 1"],
+    "labels": ["Battery powered", "Outdoor", "On wheels"],
+    "_id": "yzZ9q"
+  },
+  {
+    "name": "Momo",
+    "price": 244,
+    "createdAt": 1657656662517,
+    "inStock": true,
+    "reviews": ["review 1 best 1", "review 2 almost 1", "review 3 far from 1"],
+    "labels": ["Battery powered", "Outdoor", "On wheels"],
+    "_id": "TJwIR"
+  }
+]
